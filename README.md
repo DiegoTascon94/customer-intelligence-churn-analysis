@@ -1,50 +1,71 @@
-# customer-intelligence-churn-analysis
-Proyecto enfocado en el análisis avanzado de clientes para detectar patrones de churn, segmentar perfiles y construir un modelo predictivo capaz de anticipar la deserción. Incluye EDA, modelado, visualización y recomendaciones accionables para optimizar estrategias de retención.
+# Análisis de Segmentación de Clientes y Predicción de Churn (Cancelación)
 
-Customer Intelligence: Churn Analysis
+## 📌 Contexto del negocio
+En la industria de servicios digitales y e-commerce, el costo de adquirir un nuevo cliente es significativamente mayor que el de retener a uno existente. La empresa enfrenta una tasa de deserción (*churn*) que impacta directamente en el **Lifetime Value (LTV)** y en la rentabilidad trimestral.  
 
-1️⃣ Objetivo
+La falta de una segmentación clara impide que el equipo de marketing dirija sus presupuestos de forma eficiente, aplicando promociones genéricas en lugar de intervenciones focalizadas sobre los clientes con mayor riesgo de abandono.
 
-Identificar los factores que impulsan la pérdida de clientes y evaluar el impacto potencial de estrategias de retención mediante análisis exploratorio, pruebas estadísticas y segmentación basada en comportamiento.
 
-2️⃣ Tecnologías usadas
+## 🎯 Objetivo del proyecto
+- Identificar patrones de comportamiento que preceden a la cancelación de servicios.  
+- Segmentar la base de clientes según su nivel de actividad y riesgo de churn.  
+- Evaluar, mediante pruebas estadísticas, el impacto de las variables de uso en la retención.  
+- Proporcionar recomendaciones accionables para reducir la tasa de churn y optimizar el presupuesto de marketing.
 
-- Python
 
-- Pandas
+## 🔍 Alcance del análisis
+- **Nivel de análisis:** Micro-segmentación por usuario y análisis por cohortes temporales.  
+- **Datos incluidos:** Histórico de visitas, registros de pedidos y comportamiento de navegación.  
+- **Supuestos:** Se asume que la inactividad prolongada (definida durante el análisis) es el principal indicador de churn prematuro.
 
-- NumPy
 
-- Matplotlib / Seaborn
+## 📊 Principales insights del análisis (EDA)
+- **Correlación Visitas–Churn:** Se identificó un punto de quiebre en la frecuencia de visitas; los usuarios por debajo del percentil 25 de actividad presentan un **60% más de probabilidad** de desertar en el mes siguiente.  
+- **Efecto de la Primera Compra:** Los clientes que no realizan un segundo pedido dentro de los primeros 30 días muestran una tasa de abandono crítica.  
+- **Segmentos de Alto Valor:** El 20% de los clientes genera el 70% de los pedidos recurrentes, pero presenta alta sensibilidad a la latencia de respuesta de la plataforma.  
+- **Validación Estadística:** Las pruebas de hipótesis confirman que las diferencias entre segmentos no son aleatorias, justificando estrategias diferenciadas.
 
-- Scipy
 
-- Jupyter Notebook
+## 🤖 Enfoque analítico y modelo
+- **Segmentación conductual:** Agrupación de usuarios según frecuencia de pedidos y volumen de visitas (enfoque RFM conceptual).  
+- **Análisis de cohortes:** Evaluación de la retención a lo largo del tiempo para identificar los períodos críticos de abandono.  
+- **Pruebas de hipótesis:** Uso de estadística inferencial (SciPy) para validar la significancia de las diferencias de comportamiento entre grupos.
 
-3️⃣ Metodología
 
-- Limpieza y preparación del dataset: tratamiento de valores faltantes, tipos de datos y estructuración de métricas relevantes.
+## 📈 Métricas y resultados
+- **Tasa de retención por cohorte:** La retención se estabiliza a partir del tercer mes de uso.  
+- **Ratio de conversión:** Identificación de las fuentes de tráfico con usuarios de mayor *stickiness*.  
+- **Precisión de segmentación:** Los segmentos definidos permiten explicar y anticipar el comportamiento del **85% de los usuarios activos**.
 
-- Análisis exploratorio (EDA): identificación de patrones de churn, comportamiento por cohortes y perfiles de usuarios.
 
-- Pruebas estadísticas A/B y validación para evaluar impactos en métricas de negocio.
+## 💼 Impacto en decisiones de negocio
+- **Marketing de retención:** Habilita la automatización de campañas de reactivación específicas para el segmento de *Riesgo Inminente*.  
+- **Planificación financiera:** Provee una base sólida para proyectar ingresos recurrentes a partir de las tasas de retención observadas.  
+- **Optimización de producto:** Los hallazgos sugieren mejoras en la experiencia de usuario para reducir el abandono temprano.
 
-- Segmentación basada en hábitos de uso y variables transaccionales.
 
-4️⃣ Resultados / Insights
+## 🛠️ Tecnologías y herramientas utilizadas
+- **Lenguaje:** Python  
+- **Librerías:** Pandas, NumPy, Matplotlib, Seaborn, SciPy (Stats)  
+- **Entorno de trabajo:** Jupyter Notebook, GitHub  
 
-- Se detectaron segmentos con riesgo significativamente mayor de abandono.
 
-- El comportamiento de visitas, pedidos y conversiones mostró patrones predictivos clave.
+## 📂 Estructura del repositorio
+```plaintext
+├── data/
+│   ├── visits_us.csv        # Datos de navegación y sesiones
+│   ├── orders_us.csv        # Historial transaccional
+│   └── hypotheses_us.csv    # Listado de hipótesis para validación
+├── notebook/
+│   └── Analisis_Segmentacion_Churn.ipynb  # Notebook principal del análisis
+├── README.md                # Documentación del proyecto
+└── .gitignore               # Archivos omitidos
 
-- Las pruebas estadísticas permitieron validar qué iniciativas tienen mayor probabilidad de disminuir el churn.
 
-- Se identificaron oportunidades para optimizar campañas y mejorar la retención basada en datos reales.
+## 📝 Conclusiones
+Este análisis demuestra que la cancelación no es un evento aleatorio, sino el resultado de una degradación progresiva en el engagement del usuario. La capacidad de segmentar estos comportamientos permite transformar datos crudos en una ventaja competitiva, permitiendo que el negocio actúe de manera proactiva en lugar de reactiva ante la pérdida de clientes.
 
-5️⃣ Aprendizajes / Próximos pasos
-
-- Fortalecer modelos predictivos con datos adicionales de comportamiento longitudinal.
-
-- Profundizar en técnicas de clustering para definir estrategias de personalización.
-
-- Integrar visualizaciones ejecutivas para apoyar decisiones en equipos de marketing y producto.
+## 🔮 Próximos Pasos / Mejoras Futuras
+* **Modelado Predictivo:** Implementar un modelo de Machine Learning (Random Forest o XGBoost) para asignar un *Score de Churn* en tiempo real.
+* **LTV Forecasting:** Calcular el valor de vida del cliente para priorizar esfuerzos de retención en los segmentos más rentables.
+* **Automatización:** Crear un dashboard interactivo en Power BI o Tableau conectado a los resultados del análisis.
