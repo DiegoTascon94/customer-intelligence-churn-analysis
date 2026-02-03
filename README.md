@@ -47,7 +47,7 @@ La falta de una segmentación clara impide que el equipo de marketing dirija sus
 ## 🛠️ Tecnologías y herramientas utilizadas
 - **Lenguaje:** Python  
 - **Librerías:** Pandas, NumPy, Matplotlib, Seaborn, SciPy (Stats)  
-- **Entorno de trabajo:** Jupyter Notebook, GitHub  
+- **Entorno de trabajo:** Jupyter Notebook, GitHub
 
 
 ## 📂 Estructura del repositorio
@@ -60,7 +60,7 @@ La falta de una segmentación clara impide que el equipo de marketing dirija sus
 │   └── Analisis_Segmentacion_Churn.ipynb  # Notebook principal del análisis
 ├── README.md                # Documentación del proyecto
 └── .gitignore               # Archivos omitidos
-
+```
 
 ## 📝 Conclusiones
 Este análisis demuestra que la cancelación no es un evento aleatorio, sino el resultado de una degradación progresiva en el engagement del usuario. La capacidad de segmentar estos comportamientos permite transformar datos crudos en una ventaja competitiva, permitiendo que el negocio actúe de manera proactiva en lugar de reactiva ante la pérdida de clientes.
